@@ -1,0 +1,27 @@
+dist: trusty
+sudo: required
+language: c
+
+os: linux
+
+compiler:
+    - clang
+    - gcc
+
+script:
+    - mkdir build && pushd build
+    - bash <(curl -fsSL https://raw.githubusercontent.com/limix/hcephes/master/install)
+    - popd && rm -rf build
+    - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then test -e /usr/local/include/hcephes.h; fi
+    - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then test -e /usr/local/lib/libhcephes.a; fi
+    - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then test -e /usr/local/lib/libhcephes.so; fi
+    - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then test -e /usr/local/include/hcephes.h; fi
+    - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then test -e /usr/local/lib/libhcephes.a; fi
+    - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then test -e /usr/local/lib/libhcephes.dylib; fi
+
+notifications:
+  email:
+    recipients:
+    - danilo.horta@gmail.com
+    on_success: never
+    on_failure: always
