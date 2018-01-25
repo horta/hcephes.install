@@ -2,7 +2,7 @@
 
 One-liner for hcephes installation.
 
-# Usage
+## Usage
 
 For Windows
 ```
@@ -13,3 +13,11 @@ For Linux and macOS
 ```
 bash <(curl -fsSL https://raw.githubusercontent.com/limix/hcephes/master/install)
 ```
+
+## Authors
+
+* [Danilo Horta](https://github.com/horta)
+
+## License
+
+This project is licensed under the [MIT License](https://raw.githubusercontent.com/horta/almosthere/master/LICENSE.md).
